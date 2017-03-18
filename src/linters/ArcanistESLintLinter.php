@@ -23,7 +23,7 @@ final class ArcanistESLintLinter extends ArcanistExternalLinter {
     }
 
     public function getVersion() {
-        $output = exec('eslint --version');
+        list($output) = execx('%C --version', $this->getExecutableCommand());
 
         if (strpos($output, 'command not found') !== false) {
             return false;
@@ -45,7 +45,7 @@ final class ArcanistESLintLinter extends ArcanistExternalLinter {
     }
 
     public function getInstallInstructions() {
-        return pht('Install ESLint using `%s`.', 'npm install -g eslint eslint-plugin-react');
+        return pht('Install ESLint using `%s`.', 'npm install eslint');
     }
 
     public function getMandatoryFlags() {
