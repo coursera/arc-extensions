@@ -45,7 +45,7 @@ final class ArcanistESLintLinter extends ArcanistExternalLinter {
     }
 
     public function getInstallInstructions() {
-        return pht('Install ESLint using `%s`.', 'npm install eslint');
+        return pht('Make sure you have ESLint installed.');
     }
 
     public function getMandatoryFlags() {
