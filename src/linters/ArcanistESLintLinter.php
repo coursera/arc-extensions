@@ -52,6 +52,10 @@ final class ArcanistESLintLinter extends ArcanistExternalLinter {
         $options = array();
 
         $options[] = '--format='.dirname(realpath(__FILE__)).'/eslintJsonFormat.js';
+        $options[] = '--ext=.js';
+        $options[] = '--ext=.jsx';
+        $options[] = '--ext=.ts';
+        $options[] = '--ext=.tsx';
 
         return $options;
     }
@@ -75,7 +79,7 @@ final class ArcanistESLintLinter extends ArcanistExternalLinter {
       }
 
       // did not overwrite, output the original severity
-      return $outputtedSeverity === 'error' ?
+      return $outputtedSeverity === 2 ?
         ArcanistLintSeverity::SEVERITY_ERROR :
         ArcanistLintSeverity::SEVERITY_WARNING;
     }
